@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DIKZZ</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-light: #ffffff;
+      --bg-dark: #121212;
+      --text-light: #1a1a1a;
+      --text-dark: #f1f1f1;
+      --box-light: #f0f0f0;
+      --box-dark: #1e1e1e;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    .toggle-theme {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .music-btn {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #fff8dc;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 90px auto 30px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .welcome {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid ;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    p.bio {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .social-links {
+      margin: 20px 0;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      font-size: 22px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .portfolio {
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    .portfolio h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .project {
+      background-color: var(--box-light);
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    body.dark-mode .project {
+      background-color: var(--box-dark);
+    }
+
+    .chatbot-box {
+      margin-top: 40px;
+      background: #222;
+      padding: 15px;
+      border-radius: 12px;
+      color: white;
+      max-width: 100%;
+    }
+
+    .chatbot-box h3 {
+      margin-top: 0;
+      color: white;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .chatbot-box input, .chatbot-box button {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0;
+      font-size: 13px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    .chatbot-box input {
+      background: #333;
+      color: white;
+    }
+
+    .chatbot-box button {
+      background: #ffffff;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .chatbot-box #hasil {
+      background: #111;
+      color: #fff;
+      min-height: 40px;
+      margin-top: 8px;
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 13px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 14px;
+      color: gray;
+    }
+
+    @media (max-width: 768px) {
+      .container, .chatbot-box {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle-theme" onclick="toggleTheme()">🌓</div>
+  <button class="music-btn" onclick="toggleMusic()">🎵</button>
+  <audio id="music" loop>
+    <source src="https://cdn.tioxy.xyz/file/file-1750238601329.mp3" type="audio/mpeg">
+  </audio>
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const waktu = now.toLocaleTimeString();
+      const tanggal = now.toLocaleDateString('id-ID', options);
+      document.getElementById("time").innerHTML = ` ${tanggal} | ${waktu}`;
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime();
+    </script>
+
+  <div class="container">
+   <b><div id="time"></div></b>
+    <div class="welcome"><h1>Selamat Datang di Profil DIKZZ!</h1></div>
+    <br>
+    <img src="https://cdn.tioxy.xyz/file/file-1750238871854.png" class="avatar" alt="DIKZZ">
+    <h1>DIKZZ</h1>
+    <p class="bio">ʜᴇʟʟᴏ ᴍʏ ɴᴀᴍᴇ ɪs ᴅɪᴋᴢᴢ, ɪғ ʏᴏᴜ ɴᴇᴇᴅ ᴀɴʏᴛʜɪɴɢ ᴏʀ ᴀsᴋ ғᴏʀ ʜᴇʟᴘ ᴡʜᴀᴛsᴀᴘᴘ ᴍᴇ ᴀɴᴅ ᴍʏ ɴᴜᴍʙᴇʀ ɪs ᴀᴛ ᴛʜᴇ ᴛᴏᴘ ᴏᴋᴀʏ ᴛʜᴀɴᴋ ʏᴏᴜ ᴀɴᴅ ᴏɴᴇ ᴍᴏʀᴇ ᴛʜɪɴɢ ғᴏʀ ʏᴏᴜ ɢᴜʏs ᴅᴏɴ'ᴛ ᴅɪᴠᴇ ᴏʀ ᴄᴀʟʟ ᴍᴇ ᴏɴ ᴡʜᴀᴛsᴀᴘᴘ ʙᴇᴄᴀᴜsᴇ ᴛʜᴀᴛ's ᴠᴇʀʏ ᴀɴɴᴏʏɪɴɢ ᴛʜᴀᴛ's ᴀʟʟ ғᴏʀ ᴍᴇ.</p>
+
+    <div class="social-links">
+      <a href="https://instagram.com/dikzzmood_" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/@dikzzbotz" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://github.com/DIKZZzzzZzzz" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://tiktok.com/@dikzzmood_" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/6289637156087" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+<!--
+    <div class="">
+      <h2>PROJECT</h2>
+      <div class="project">
+        <h3>Bot WhatsApp AI</h3>
+        <p>Bot yang bisa ngobrol, play musik, membuat sticker dan masih banyak lagi!</p>
+      </div>
+      <div class="project">
+        <h3>Website Chatbot AI</h3>
+        <p>Frontend chatbot pakai AI API (Xteam/Onyx) dengan tampilan clean dan interaktif.</p>
+      </div>
+      <div class="project">
+        <h3>3. Dashboard Panel</h3>
+        <p>Panel admin untuk monitoring pengguna bot & fitur-fitur berbasis API dan Node.js.</p>
+      </div>
+    </div>
+
+    <!-- Chatbot kecil bagian bawah -->
+    <div class="chatbot-box">
+      <h3>CHAT DENGAN AI</h3>
+      <input type="text" id="pesan" placeholder="Tanya sesuatu...">
+      <button onclick="kirim()">Kirim</button>
+      <div id="hasil">🕒 Menunggu Pesan...</div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 DIKZZ. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function toggleMusic() {
+      const music = document.getElementById("music");
+      music.paused ? music.play() : music.pause();
+    }
+
+    async function kirim() {
+      const teks = document.getElementById("pesan").value;
+      const hasil = document.getElementById("hasil");
+      hasil.textContent = '⏳ Memproses...';
+
+      try {
+        const url = `https://api.allorigins.win/raw?url=${encodeURIComponent('https://rayhanzuck.vercel.app/api/ai/openai?text=' + teks)}`;
+        const res = await fetch(url);
+        const json = await res.json();
+        hasil.textContent = json.response ? '🤖 ' + json.response : '❌ Gagal membaca respons.';
+      } catch (e) {
+        hasil.textContent = '❌ Gagal mengambil jawaban.';
+      }
+    }
+
+    
+  </script>
+</body>
+</html>
